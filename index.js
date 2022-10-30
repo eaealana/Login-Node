@@ -1,13 +1,16 @@
 //! requires
 const express = require("express")
 const uuid = require("uuid")
-const app = express()
+//! cors = permissão do front-end se conectar com o back-end
+const cors = require("cors")
 
 //! consts
 const port = 3001
+const app = express()
 const users = []
 
 app.use(express.json())
+app.use(cors())
 
 //! middleware
 const checkUserId = (request, response, next) => {
